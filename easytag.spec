@@ -1,12 +1,14 @@
 Name:    easytag
 Version: 2.4.3
-Release: 6%{?dist}
+Epoch:   1
+Release: 1%{?dist}
 Summary: Tag editor for MP3, Ogg, FLAC and other music files
 
 Group:   Applications/Multimedia
 License: GPLv2+
 URL:     https://wiki.gnome.org/Apps/EasyTAG
 Source:  https://download.gnome.org/sources/%{name}/2.4/%{name}-%{version}.tar.xz
+Patch1:  vorbis-fix.patch
 
 BuildRequires: appdata-tools
 BuildRequires: desktop-file-utils
@@ -43,6 +45,7 @@ easier access to EasyTAG when opening directories and audio files.
 
 %prep
 %setup -q
+%patch1 -p1 -b .vorbis-fix
 
 
 %build
@@ -79,6 +82,10 @@ make check
 
 
 %changelog
+* Mon Feb 19 2018 Nicholas Kudriavtsev <nkudriavtsevg@gmail.com> - 1:2.4.3-1
+- Apply patche to fix vorbis tags writing
+  (reverse commit e5c640ca3f259f1b74e716723345521987a7bd68)
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.4.3-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
