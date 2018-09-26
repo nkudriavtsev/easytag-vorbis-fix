@@ -1,7 +1,7 @@
 Name:    easytag
 Version: 2.4.3
 Epoch:   1
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Tag editor for MP3, Ogg, FLAC and other music files
 
 Group:   Applications/Multimedia
@@ -14,6 +14,8 @@ BuildRequires: appdata-tools
 BuildRequires: desktop-file-utils
 BuildRequires: docbook-dtds
 BuildRequires: docbook-style-xsl
+BuildRequires: gcc
+BuildRequires: gcc-c++
 BuildRequires: id3lib-devel >= 3.7.12
 BuildRequires: intltool
 BuildRequires: itstool
@@ -82,6 +84,9 @@ make check
 
 
 %changelog
+* Wed Sep 26 2018 Nicholas Kudriavtsev <nkudriavtsevg@gmail.com> - 1:2.4.3-2
+- Add BuildRequires on gcc-c++ (#1603853) /in sync with Fedora/
+
 * Mon Feb 19 2018 Nicholas Kudriavtsev <nkudriavtsevg@gmail.com> - 1:2.4.3-1
 - Apply patche to fix vorbis tags writing
   (reverse commit e5c640ca3f259f1b74e716723345521987a7bd68)
