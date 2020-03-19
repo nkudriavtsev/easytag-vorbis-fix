@@ -1,7 +1,7 @@
 Name:    easytag
 Version: 2.4.3
 Epoch:   1
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Tag editor for MP3, Ogg, FLAC and other music files
 
 Group:   Applications/Multimedia
@@ -51,7 +51,7 @@ easier access to EasyTAG when opening directories and audio files.
 
 
 %build
-%configure
+%configure --disable-appdata-validate
 make V=1 %{?_smp_mflags}
 
 
@@ -84,6 +84,9 @@ make check
 
 
 %changelog
+* Thu Mar 19 2020 Nicholas Kudriavtsev <nkudriavtsevg@gmail.com> - 1:2.4.3-3
+- Disable appdata validation for Fedora 32 buil
+
 * Wed Sep 26 2018 Nicholas Kudriavtsev <nkudriavtsevg@gmail.com> - 1:2.4.3-2
 - Add BuildRequires on gcc-c++ (#1603853) /in sync with Fedora/
 
